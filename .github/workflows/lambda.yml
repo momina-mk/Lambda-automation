@@ -11,9 +11,7 @@ jobs:
 
     steps:
       - name: Zip Lambda Function
-        run: |
-          cd src
-          zip -r code.zip . -x "node_modules/*"
+        run:  zip -r code.zip /src
 
   deploy:
     needs: build
