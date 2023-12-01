@@ -1,6 +1,42 @@
 provider "aws" {
   region = "us-east-1" 
 }
+data "archive_file" "zip_the_python_code" {
+  type        = "zip"
+  source_dir  = "${path.module}/python/"
+  output_path = "${path.module}/python/hello-python.zip"
+}
+resource "aws_iam_role" "lambda_exec" {
+  name = "lambda_execution_role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Action = "sts:AssumeRole",
+        Effect = "Allow",
+        Principal = {
+          Service = "lambda.amazonaws.com",
+        },
+      },
+    ],
+  })
+
+  inline_policy {
+    name = "sns_publish_policy"
+
+    policy = jsonencode({
+      Version = "2012-10-17",
+      Statement = [
+        {
+          Action = "sns:Publish",
+          Effect = "Allow",
+          Resource = "arn:aws:sns:us-east-1:979490057625:lambda_topic",  
+        },
+      ],
+    })
+  }
+}
 
 resource "aws_lambda_function" "myfunction" {
   function_name = "myfunction"
@@ -20,20 +56,6 @@ resource "aws_lambda_function" "myfunction" {
   }
 }
 
-resource "aws_iam_role" "lambda_exec" {
-  name = "lambda_execution_role"
-
-  assume_role_policy = jsonencode({
-    Version = "2012-10-17",
-    Statement = [{
-      Action = "sts:AssumeRole",
-      Effect = "Allow",
-      Principal = {
-        Service = "lambda.amazonaws.com",
-      },
-    }],
-  })
-}
 
 resource "aws_sns_topic" "lambda_topic" {
   name = "LambdaNotificationTopic"
@@ -78,4 +100,8 @@ resource "aws_api_gateway_deployment" "my_lambda_gateway_deployment" {
   rest_api_id = aws_api_gateway_rest_api.my_lambda_api.id
   stage_name  = "prod"
 }
+output "url" {
+  value = aws_api_gateway_deployment.my_lambda_gateway_deployment.invoke_url
+}
+
 
