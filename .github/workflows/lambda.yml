@@ -10,22 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-          
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - name: Install Dependencies
-        run: |
-          cd src  
-          npm install
-
-      - name: Build Lambda Function
-        run: npm run build  
-
       - name: Zip Lambda Function
         run: zip -r lambda-function.zip . -x "node_modules/*"
 
