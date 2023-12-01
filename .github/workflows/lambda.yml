@@ -49,5 +49,5 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       - name: Get Lambda Function URL
-        run: echo "Lambda Function URL: ${{ steps.deploy.outputs.url }}"
+        run: echo "Lambda Function URL:${{ steps.deploy.outputs.url }}"
 
