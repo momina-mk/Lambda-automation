@@ -20,7 +20,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          cd src/code.js  
+          cd src  
           npm install
 
       - name: Build Lambda Function
