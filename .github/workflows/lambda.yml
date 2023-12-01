@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Zip Lambda Function
         run: |
-          cd /src/
+          cd src
           zip -r code.zip . -x "node_modules/*"
 
   deploy:
