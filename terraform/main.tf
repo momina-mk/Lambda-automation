@@ -25,7 +25,7 @@ resource "aws_lambda_function" "myfunction" {
   runtime      = "nodejs18.x"
   filename     = filebase64("${path.module}./src/index.zip")
 
-  source_code_hash = filebase64sha256("${path.module}.src/index.zip")
+  source_code_hash = filebase64sha256("${path.module}/src/index.zip")
 
   role = aws_iam_role.lambda_exec.arn
 }
