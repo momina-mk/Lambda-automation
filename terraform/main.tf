@@ -1,4 +1,4 @@
-provider "aws" {
+ provider "aws" {
   region = "us-east-1" 
 }
 
@@ -23,7 +23,7 @@ resource "aws_lambda_function" "myfunction" {
   function_name = "myfunction"
   handler      = "index.handler"
   runtime      = "nodejs18.x"
-  filename     = file("${path.module}./src/index.zip")
+  filename     = filebase64("${path.module}./src/index.zip")
 
   source_code_hash = filebase64sha256("index.zip")
 
