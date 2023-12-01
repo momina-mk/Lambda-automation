@@ -30,8 +30,5 @@ resource "aws_lambda_function" "myfunction" {
   role = aws_iam_role.lambda_exec.arn
 }
 
-output "url" {
-  value = aws_api_gateway_deployment.my_lambda_gateway_deployment.invoke_url
-}
 
 
