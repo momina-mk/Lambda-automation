@@ -4,16 +4,15 @@ on:
   push:
     branches:
       - main
+  
+  contents: read
 
 jobs:
   tf-fmt:
+    name: Deploy Site
     runs-on: ubuntu-latest
     steps:
      
-        name: Deploy Site
-        runs-on: ubuntu-latest
-        steps:
-
         - name: Checkout Repo
           uses: actions/checkout@v1
 
