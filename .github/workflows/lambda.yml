@@ -6,11 +6,10 @@ on:
       - main
 
 jobs:
-  deploy:
+  tf-fmt:
     runs-on: ubuntu-latest
-
     steps:
-      tf_fmt:
+     
         name: Deploy Site
         runs-on: ubuntu-latest
         steps:
