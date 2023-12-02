@@ -3,8 +3,8 @@ provider "aws" {
 }
 data "archive_file" "zip_the_python_code" {
   type        = "zip"
-  source_dir  = "index.js"
-  output_path = "./index.zip"
+  source_dir  = "./codejs"
+  output_path = "./codejs/index.zip"
 }
 
 resource "aws_iam_role" "lambda_exec" {
