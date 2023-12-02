@@ -1,5 +1,3 @@
-import json
-// index.js
 exports.handler = async (event) => {
   console.log('Lambda function invoked!');
   
