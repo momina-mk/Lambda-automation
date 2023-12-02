@@ -22,7 +22,7 @@ resource "aws_iam_role" "lambda_exec" {
 resource "aws_lambda_function" "myfunction" {
   function_name = "myfunction"
   handler      = "index.handler"
-  runtime      = "nodejs18.x"
+  runtime      = "nodejs14.x"
   filename     = filebase64("index.zip")
 
   source_code_hash = filebase64sha256("index.zip")
