@@ -32,5 +32,9 @@ resource "aws_lambda_function" "myfunction" {
 
   role = aws_iam_role.lambda_exec_role.arn
 }
+resource "aws_lambda_function_url" "myfunction_url" {
+  function_name      = aws_lambda_function.myfunciton.function_name
+  authorization_type = "NONE"
+}
 
 
