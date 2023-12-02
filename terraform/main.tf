@@ -3,7 +3,7 @@ provider "aws" {
 }
 data "archive_file" "zip_the_python_code" {
   type        = "zip"
-  source_dir  = "./index.js"
+  source_dir  = "index.js"
   output_path = "./index.zip"
 }
 
