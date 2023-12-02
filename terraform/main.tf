@@ -7,8 +7,8 @@ data "archive_file" "zip_the_python_code" {
   output_path = "./codejs/index.zip"
 }
 
-resource "aws_iam_role" "lambda_exec_role1" {
-  name = "lambda_execution_role"
+resource "aws_iam_role" "lambda_exec_role" {
+  name = "_momina_lambda_execution_role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
@@ -30,7 +30,7 @@ resource "aws_lambda_function" "myfunction" {
   runtime      = "nodejs14.x"
   filename     = data.archive_file.zip_the_python_code.output_path
 
-  role = aws_iam_role.lambda_exec_role1.arn
+  role = aws_iam_role.lambda_exec_role.arn
 }
 
 
