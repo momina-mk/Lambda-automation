@@ -1,7 +1,7 @@
  provider "aws" {
   region = "us-east-1"
-  AWS_ACCESS_KEY_ID = "${{ secrets.AWS_ACCESS_KEY_ID }}"
-  AWS_SECRET_ACCESS_KEY = "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+  acces_key = "${{ secrets.AWS_ACCESS_KEY_ID }}"
+  secret_key = "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
 }
 
 resource "aws_iam_role" "lambda_exec" {
