@@ -1,6 +1,13 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 4.0, < 5.5"
+    }
+  }
+}
 provider "aws" {
   region = "us-east-1"
-  version = "~> 4.0"
 }
 data "archive_file" "zip_the_python_code" {
   type        = "zip"
