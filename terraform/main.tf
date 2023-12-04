@@ -2,13 +2,13 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = ">= 4.0, < 5.5"
     }
   }
-  required_version = "~> 1.3"
+  required_version = "~> 1.6"
 }
 provider "aws" {
   region = "us-east-1"
+  version = ">= 4.0, < 5.5"
 }
 data "archive_file" "zip_the_python_code" {
   type        = "zip"
