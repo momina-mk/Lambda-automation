@@ -87,10 +87,10 @@ jobs:
       #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         - name: Set Lambda Function URL as Output
           id: lambda-url
-          run: >-
-           FUNCTION_URL=$(terraform output function_url)
-           echo "::set-output name=lambda_url::$FUNCTION_URL"
-           working-directory: terraform
-
+          run:
+            cd terraform
+            FUNCTION_URL=$(terraform output function_url)
+            echo "::set-output name=lambda_url::$FUNCTION_URL"
+           
         - name: Get Lambda Function URL
           run: echo "Lambda Function URL:${{ steps.lambda-url.outputs.lambda_url }}"
