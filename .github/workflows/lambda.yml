@@ -25,8 +25,6 @@ jobs:
 
         - name: Terraform Init
           uses: hashicorp/terraform-github-actions/init@v0.4.0
-          with:
-            terraform_version: 1.6.2 
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             TF_ACTION_WORKING_DIR: 'terraform'
@@ -38,8 +36,6 @@ jobs:
 
         - name: Terraform Apply
           uses: hashicorp/terraform-github-actions/apply@v0.4.0
-          with:
-            terraform_version: 1.6.2 
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             TF_ACTION_WORKING_DIR: 'terraform'
