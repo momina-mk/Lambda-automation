@@ -5,7 +5,7 @@ data "archive_file" "zip_the_python_code" {
 }
 
 resource "aws_iam_role" "lambda_exec_role" {
-  name = "momina_lambda_execution_role"
+  name = "my_lambda_execution_role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
