@@ -5,7 +5,7 @@ data "archive_file" "zip_the_python_code" {
 }
 
 resource "aws_iam_role" "lambda_exec_role" {
-  name = "my_lambda_execution_role"
+  name = "myyy_lambda_execution_role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
@@ -32,8 +32,4 @@ resource "aws_lambda_function" "myfunction" {
 resource "aws_lambda_function_url" "myfunction_url" {
   function_name      = aws_lambda_function.myfunction.function_name
   authorization_type = "NONE"
-}
-output "function_url" {
-  description = "Function URL."
-  value       = aws_lambda_function_url.myfunction_url.function_url
 }
