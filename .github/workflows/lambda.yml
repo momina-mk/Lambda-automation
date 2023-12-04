@@ -93,5 +93,4 @@ jobs:
            working-directory: terraform
 
         - name: Get Lambda Function URL
-          run: echo "Lambda Function URL: ${{ steps.lambda-url.outputs.lambda_url }}"
-            
+          run: echo "Lambda Function URL:${{ steps.lambda-url.outputs.lambda_url }}"
