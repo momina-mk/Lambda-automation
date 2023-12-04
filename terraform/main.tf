@@ -33,3 +33,7 @@ resource "aws_lambda_function_url" "myfunction_url" {
   function_name      = aws_lambda_function.myfunction.function_name
   authorization_type = "NONE"
 }
+output "function_url" {
+  description = "Function URL."
+  value       = aws_lambda_function_url.myfunction_url.function_url
+}
