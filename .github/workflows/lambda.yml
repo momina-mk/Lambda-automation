@@ -88,7 +88,6 @@ jobs:
         - name: Set Lambda Function URL as Output
           id: lambda-url
           run:
-            cd terraform
             FUNCTION_URL=$(terraform output function_url)
             echo "::set-output name=lambda_url::$FUNCTION_URL"
            
